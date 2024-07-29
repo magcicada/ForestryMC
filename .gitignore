@@ -21,4 +21,5 @@
 !/gradlew.bat
 !/cla-signatures.txt
 !/formatting-settings.jar
+!/settings.gradle
 src/generated/
