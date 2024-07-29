@@ -15,9 +15,10 @@
 !/license-header.txt
 !/README.md
 !/gradle.properties
-!/build.gradle
+!/build.gradle.kts
 !/build.xml
 !/gradlew
 !/gradlew.bat
 !/cla-signatures.txt
 !/formatting-settings.jar
+src/generated/
