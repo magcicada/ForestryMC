@@ -3,7 +3,7 @@
   "modid": "forestry",
   "name": "Forestry",
   "description": "Trees, bees and more.",
-  "credits": "mistaqur, Binnie, CovertJaguar, MysteriousAges, Nirek, Nedelosk",
+  "credits": "mistaqur, Binnie, CovertJaguar, MysteriousAges, Nirek, Nedelosk, thedarkcolour",
   "logoFile": "/assets/forestry/logo.png",
   "version": "${version}",
   "mcversion": "${mcversion}",
