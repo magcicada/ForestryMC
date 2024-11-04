@@ -44,11 +44,11 @@ public abstract class TileEngine extends TileBase implements IActivatable, IStre
 	 * Indicates whether the piston is receding from or approaching the
 	 * combustion chamber
 	 */
-	private int stagePiston = 0;
+	public int stagePiston = 0;
 	/**
 	 * Piston speed as supplied by the server
 	 */
-	private float pistonSpeedServer = 0;
+	public float pistonSpeedServer = 0;
 
 	protected int currentOutput = 0;
 	protected int heat;

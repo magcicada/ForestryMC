@@ -34,11 +34,10 @@ public class RenderEngine extends TileEntitySpecialRenderer<TileEngine> {
 	private final ModelRenderer extension;
 
 	private enum Textures {
-
 		BASE, PISTON, EXTENSION, TRUNK_HIGHEST, TRUNK_HIGHER, TRUNK_HIGH, TRUNK_MEDIUM, TRUNK_LOW
 	}
 
-	private ResourceLocation[] textures;
+	private final ResourceLocation[] textures;
 	private static final float[] angleMap = new float[6];
 
 	static {
@@ -95,26 +94,29 @@ public class RenderEngine extends TileEntitySpecialRenderer<TileEngine> {
 				IBlockState blockState = worldObj.getBlockState(engine.getPos());
 				if (blockState.getBlock() instanceof BlockBase) {
 					EnumFacing facing = blockState.getValue(BlockBase.FACING);
-					render(engine.getTemperatureState(), engine.progress, facing, x, y, z);
+					render(engine.getTemperatureState(), engine.progress, engine.stagePiston, engine.pistonSpeedServer, partialTicks, facing, x, y, z);
 					return;
 				}
 			}
 		}
-		render(TemperatureState.COOL, 0.25F, EnumFacing.UP, x, y, z);
+		render(TemperatureState.COOL, 0.25F, 0, 0f, 0f, EnumFacing.UP, x, y, z);
 	}
 
-	private void render(TemperatureState state, float progress, EnumFacing orientation, double x, double y, double z) {
+	private void render(TemperatureState state, float progress, int stagePiston, float serverSpeed, float partialTicks, EnumFacing orientation, double x, double y, double z) {
 		GlStateManager.color(1, 1, 1);
 
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x, (float) y, (float) z);
 
 		float step;
-
-		if (progress > 0.5) {
-			step = 5.99F - (progress - 0.5F) * 2F * 5.99F;
+		if (stagePiston != 0) {
+			float smoothing = serverSpeed * partialTicks;
+			progress += smoothing;
+		}
+		if (progress > 0.5f) {
+			step = 6f - (progress - 0.5f) * 12f;
 		} else {
-			step = progress * 2F * 5.99F;
+			step = progress * 12f;
 		}
 
 		float tfactor = step / 16;
