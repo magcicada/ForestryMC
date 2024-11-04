@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import net.minecraft.block.BlockDoor;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -47,6 +48,7 @@ public class BlockArbDoor extends BlockDoor implements IWoodTyped, IItemModelReg
 
 		setHarvestLevel("axe", 0);
 		setCreativeTab(Tabs.tabArboriculture);
+		setSoundType(SoundType.WOOD);
 	}
 
 	@Override
