@@ -35,6 +35,8 @@ public class BlockForestryStairs<T extends Enum<T> & IWoodType> extends BlockSta
 		this.woodType = woodType;
 		setCreativeTab(Tabs.tabArboriculture);
 		setHarvestLevel("axe", 0);
+
+		this.useNeighborBrightness = true;
 	}
 
 	/* MODELS */
