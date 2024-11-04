@@ -54,12 +54,13 @@ minecraft {
 	mcpMappingChannel.set("stable")
 	mcpMappingVersion.set(mappingsVersion)
 
-	injectedTags.set(
-		mapOf(
-			"@VERSION@" to project.version,
-			"@BUILD_NUMBER@" to getBuildNumber()
-		)
-	)
+	injectedTags.put("TAG_VERSION", project.version)
+	injectedTags.put("TAG_BUILD_NUMBER", getBuildNumber())
+	tagReplacementFiles.add("Constants.java")
+}
+
+tasks.injectTags.configure {
+	outputClassName.set("forestry.core.config.InjectedConstants")
 }
 
 repositories {
@@ -68,6 +69,7 @@ repositories {
 	maven("https://mod-buildcraft.com/maven")
 	maven("https://modmaven.dev")
 	maven("https://repo1.maven.org/maven2")
+	maven("https://nexus.gtnewhorizons.com/repository/public/")
 }
 
 dependencies {

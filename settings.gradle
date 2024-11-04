@@ -10,6 +10,7 @@ pluginManagement {
             filter {
                 includeGroup("com.gtnewhorizons")
                 includeGroup("com.gtnewhorizons.retrofuturagradle")
+                includeGroup("com.gtnewhorizons.rfg-javac-plugin")
             }
         }
         gradlePluginPortal()
