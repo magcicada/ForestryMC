@@ -198,9 +198,19 @@ public abstract class ItemStackUtil {
 			}
 
 			if (!matched) {
-				ItemStack cached = stack.copy();
-				condensed.add(cached);
-				condensedDicts.add(dicts.get(i));
+				boolean dictMatched = false;
+				String dict = dicts.get(i);
+				for (int j = 0; j < condensedDicts.size(); j++) {
+					if (dict.equals(condensedDicts.get(j))) {
+						condensed.get(j).grow(stack.getCount());
+						dictMatched = true;
+					}
+				}
+				if (!dictMatched) {
+					ItemStack cached = stack.copy();
+					condensed.add(cached);
+					condensedDicts.add(dicts.get(i));
+				}
 			}
 
 		}
