@@ -92,6 +92,7 @@ public class ModuleLepidopterology extends BlankForestryModule {
 	public static int spawnConstraint = 100;
 	public static int entityConstraint = 1000;
 	public static int maxDistance = 64;
+	public static int maxLifespan = 24000 * 7; // one minecraft week in ticks
 	private static boolean allowPollination = true;
 	public static final Map<String, Float> spawnRaritys = Maps.newHashMap();
 	private static boolean spawnButterflysFromLeaves = true;
@@ -215,17 +216,15 @@ public class ModuleLepidopterology extends BlankForestryModule {
 		spawnConstraint = config.getIntLocalized("butterfly.entities", "spawn.limit", spawnConstraint, 0, 500);
 		entityConstraint = config.getIntLocalized("butterfly.entities", "maximum", entityConstraint, 0, 5000);
 		maxDistance = config.getIntLocalized("butterfly.entities", "maxDistance", maxDistance, 0, 256);
+		maxLifespan = config.getIntLocalized("butterfly.entities", "maxLifespan", maxLifespan, 0, Integer.MAX_VALUE);
 		allowPollination = config.getBooleanLocalized("butterfly.entities", "pollination", allowPollination);
-		spawnButterflysFromLeaves = config.getBooleanLocalized("butterfly.entities", "spawn.leaves",
-				spawnButterflysFromLeaves);
+		spawnButterflysFromLeaves = config.getBooleanLocalized("butterfly.entities", "spawn.leaves", spawnButterflysFromLeaves);
 
 		generateCocoons = config.getBooleanLocalized("butterfly.cocoons", "generate", generateCocoons);
-		generateCocoonsAmount = config.getFloatLocalized("butterfly.cocoons", "generate.amount", generateCocoonsAmount,
-				0.0f, 10.0f);
+		generateCocoonsAmount = config.getFloatLocalized("butterfly.cocoons", "generate.amount", generateCocoonsAmount, 0.0f, 10.0f);
 
 		serumChance = config.getFloatLocalized("butterfly.cocoons", "serum", serumChance, 0.0f, 100.0f);
-		secondSerumChance = config.getFloatLocalized("butterfly.cocoons", "second.serum", secondSerumChance, 0.0f,
-				100.0f);
+		secondSerumChance = config.getFloatLocalized("butterfly.cocoons", "second.serum", secondSerumChance, 0.0f, 100.0f);
 
 		parseRarity(config);
 		parseCooconLoots(config);
