@@ -211,7 +211,7 @@ public class ModuleLepidopterology extends BlankForestryModule {
 	}
 
 	private static void loadConfig(File configFile) {
-		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "1.1.0");
+		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "1.2.0");
 
 		spawnConstraint = config.getIntLocalized("butterfly.entities", "spawn.limit", spawnConstraint, 0, 500);
 		entityConstraint = config.getIntLocalized("butterfly.entities", "maximum", entityConstraint, 0, 5000);

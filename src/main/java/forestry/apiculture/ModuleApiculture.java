@@ -261,11 +261,11 @@ public class ModuleApiculture extends BlankForestryModule {
 	public void doInit() {
 		File configFile = new File(Forestry.instance.getConfigFolder(), CONFIG_CATEGORY + ".cfg");
 
-		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "3.0.0");
+		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "3.1.0");
 		if (!Objects.equals(config.getLoadedConfigVersion(), config.getDefinedConfigVersion())) {
 			boolean deleted = configFile.delete();
 			if (deleted) {
-				config = new LocalizedConfiguration(configFile, "3.0.0");
+				config = new LocalizedConfiguration(configFile, "3.1.0");
 			}
 		}
 
