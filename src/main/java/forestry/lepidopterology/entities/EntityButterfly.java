@@ -405,7 +405,7 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 
 	@Override
 	protected boolean canDespawn() {
-		return ModuleLepidopterology.maxLifespan > 0 && ticksExisted > MAX_LIFESPAN;
+		return MAX_LIFESPAN > 0 && ticksExisted > MAX_LIFESPAN;
 	}
 
 	/* INTERACTION */
@@ -481,7 +481,7 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 			attackEntityFrom(DamageSource.GENERIC, 1);
 		}
 
-		if (ModuleLepidopterology.maxLifespan > 0 && ticksExisted > MAX_LIFESPAN) {
+		if (MAX_LIFESPAN > 0 && ticksExisted > MAX_LIFESPAN) {
 			attackEntityFrom(DamageSource.GENERIC, 1);
 		}
 
