@@ -165,6 +165,8 @@ public class ModuleApiculture extends BlankForestryModule {
 
 	public static boolean hiveDamageOnAttack = true;
 
+	public static boolean hiveDamagePierceArmor = true;
+
 	public static boolean doSelfPollination = true;
 
 	public static int maxFlowersSpawnedPerHive = 20;
@@ -259,11 +261,11 @@ public class ModuleApiculture extends BlankForestryModule {
 	public void doInit() {
 		File configFile = new File(Forestry.instance.getConfigFolder(), CONFIG_CATEGORY + ".cfg");
 
-		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "3.0.0");
+		LocalizedConfiguration config = new LocalizedConfiguration(configFile, "3.1.0");
 		if (!Objects.equals(config.getLoadedConfigVersion(), config.getDefinedConfigVersion())) {
 			boolean deleted = configFile.delete();
 			if (deleted) {
-				config = new LocalizedConfiguration(configFile, "3.0.0");
+				config = new LocalizedConfiguration(configFile, "3.1.0");
 			}
 		}
 
@@ -294,6 +296,8 @@ public class ModuleApiculture extends BlankForestryModule {
 		hivesDamageOnlyPlayers = config.getBooleanLocalized("beekeeping.hivedamage", "onlyPlayers", hivesDamageOnlyPlayers);
 
 		hiveDamageOnAttack = config.getBooleanLocalized("beekeeping.hivedamage", "onlyAfterAttack", hiveDamageOnAttack);
+
+		hiveDamagePierceArmor = config.getBooleanLocalized("beekeeping.hivedamage", "pierceArmor", hiveDamagePierceArmor);
 
 		doSelfPollination = config.getBooleanLocalized("beekeeping", "self.pollination", false);
 

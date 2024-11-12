@@ -73,7 +73,12 @@ public class TileEuGenerator extends TileBase implements ISidedInventory, ILiqui
 		tankManager = new TankManager(this, resourceTank);
 
 		if (ModuleHelper.isModuleEnabled(ForestryCompatPlugins.ID, ForestryModuleUids.INDUSTRIALCRAFT2)) {
-			ic2EnergySource = new BasicSource(this, maxEnergy, 1);
+			ic2EnergySource = new BasicSource(this, maxEnergy, 1) {
+				@Override
+				public double getOfferedEnergy() {
+					return Math.min(32, super.getOfferedEnergy());
+				}
+			};
 		}
 	}
 

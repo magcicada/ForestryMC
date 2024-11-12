@@ -10,6 +10,7 @@
  ******************************************************************************/
 package forestry.core.utils;
 
+import forestry.apiculture.ModuleApiculture;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
@@ -19,7 +20,7 @@ public class DamageSourceForestry extends DamageSource {
 
 	public DamageSourceForestry(String ident) {
 		super(ident);
-		setDamageBypassesArmor();
+		if (ModuleApiculture.hiveDamagePierceArmor) setDamageBypassesArmor();
 	}
 
 	@Override

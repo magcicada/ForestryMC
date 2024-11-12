@@ -27,4 +27,9 @@ public class ItemInventoryBackpack extends ItemInventory {
 	public boolean canSlotAccept(int slotIndex, ItemStack itemStack) {
 		return backpackDefinition.getFilter().test(itemStack);
 	}
+
+    @Override
+    public boolean isUsableByPlayer(EntityPlayer entityplayer) {
+        return entityplayer.getHeldItemMainhand().getItem() instanceof ItemBackpack;
+    }
 }

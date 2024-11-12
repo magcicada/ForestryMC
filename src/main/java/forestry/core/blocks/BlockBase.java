@@ -20,6 +20,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -43,6 +44,7 @@ import net.minecraft.world.World;
 
 import com.mojang.authlib.GameProfile;
 
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.FluidUtil;
 
@@ -307,6 +309,24 @@ public class BlockBase<P extends Enum<P> & IBlockType & IStringSerializable> ext
 		if (blockType.getMachineProperties() instanceof IMachinePropertiesTesr) {
 			IBlockState blockState = world.getBlockState(pos);
 			return ParticleHelper.addDestroyEffects(world, this, blockState, pos, effectRenderer, particleCallback);
+		}
+		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public boolean addLandingEffects(IBlockState state, WorldServer worldObj, BlockPos blockPosition, IBlockState iblockstate, EntityLivingBase entity, int numberOfParticles) {
+		if (blockType.getMachineProperties() instanceof IMachinePropertiesTesr) {
+			return ParticleHelper.addDestroyEffects(worldObj, this, state, blockPosition.up(), Minecraft.getMinecraft().effectRenderer, particleCallback);
+		}
+		return false;
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public boolean addRunningEffects(IBlockState state, World world, BlockPos pos, Entity entity) {
+		if (blockType.getMachineProperties() instanceof IMachinePropertiesTesr) {
+			return ParticleHelper.addBlockHitEffects(world, pos, EnumFacing.UP, Minecraft.getMinecraft().effectRenderer, particleCallback);
 		}
 		return false;
 	}

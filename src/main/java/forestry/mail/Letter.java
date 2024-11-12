@@ -44,12 +44,12 @@ public class Letter implements ILetter {
 
 	private String text = "";
 	private final InventoryAdapter inventory = new InventoryAdapter(22, "INV");
-	private final String uid;
+	private final int uid;
 
 	public Letter(IMailAddress sender, IMailAddress recipient) {
 		this.sender = sender;
 		this.recipient = recipient;
-		this.uid = String.valueOf(rand.nextInt());
+		this.uid = rand.nextInt();
 	}
 
 	public Letter(NBTTagCompound nbttagcompound) {
@@ -58,7 +58,7 @@ public class Letter implements ILetter {
 		this.recipient = new MailAddress(nbttagcompound.getCompoundTag("RC"));
 
 		this.text = nbttagcompound.getString("TXT");
-		this.uid = nbttagcompound.getString("UID");
+		this.uid = nbttagcompound.getInteger("UID");
 		this.inventory.readFromNBT(nbttagcompound);
 	}
 
@@ -78,7 +78,7 @@ public class Letter implements ILetter {
 		}
 
 		nbttagcompound.setString("TXT", this.text);
-		nbttagcompound.setString("UID", this.uid);
+		nbttagcompound.setInteger("UID", this.uid);
 		inventory.writeToNBT(nbttagcompound);
 		return nbttagcompound;
 	}
