@@ -78,7 +78,6 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 
 	public static final int EXHAUSTION_REST = 1000;
 	public static final int EXHAUSTION_CONSUMPTION = 100 * EXHAUSTION_REST;
-	public static final int MAX_LIFESPAN = ModuleLepidopterology.maxLifespan;
 
 	@Nullable
 	private Vec3d flightTarget;
@@ -405,7 +404,7 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 
 	@Override
 	protected boolean canDespawn() {
-		return MAX_LIFESPAN > 0 && ticksExisted > MAX_LIFESPAN;
+		return ModuleLepidopterology.maxLifespan > 0 && ticksExisted > ModuleLepidopterology.maxLifespan;
 	}
 
 	/* INTERACTION */
@@ -481,7 +480,7 @@ public class EntityButterfly extends EntityCreature implements IEntityButterfly 
 			attackEntityFrom(DamageSource.GENERIC, 1);
 		}
 
-		if (MAX_LIFESPAN > 0 && ticksExisted > MAX_LIFESPAN) {
+		if (ModuleLepidopterology.maxLifespan > 0 && ticksExisted > ModuleLepidopterology.maxLifespan) {
 			attackEntityFrom(DamageSource.GENERIC, 1);
 		}
 
