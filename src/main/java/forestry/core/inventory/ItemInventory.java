@@ -134,10 +134,6 @@ public abstract class ItemInventory implements IInventory, IFilterSlotDelegate, 
 			return false;
 		}
 
-		if (comparison.getItem() instanceof ItemLetter) {
-			return false;
-		}
-
 		int baseUID = baseTagCompound.getInteger(KEY_UID);
 		int comparisonUID = comparisonTagCompound.getInteger(KEY_UID);
 		return baseUID == comparisonUID;
