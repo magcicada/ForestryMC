@@ -165,7 +165,7 @@ public class ModuleApiculture extends BlankForestryModule {
 
 	public static boolean hiveDamageOnAttack = true;
 
-	public static boolean hiveDamageIgnoreArmor = true;
+	public static boolean hiveDamagePierceArmor = true;
 
 	public static boolean doSelfPollination = true;
 
@@ -297,7 +297,7 @@ public class ModuleApiculture extends BlankForestryModule {
 
 		hiveDamageOnAttack = config.getBooleanLocalized("beekeeping.hivedamage", "onlyAfterAttack", hiveDamageOnAttack);
 
-		hiveDamageIgnoreArmor = config.getBooleanLocalized("beekeeping.hivedamage", "ignoreArmor", hiveDamageIgnoreArmor);
+		hiveDamagePierceArmor = config.getBooleanLocalized("beekeeping.hivedamage", "pierceArmor", hiveDamagePierceArmor);
 
 		doSelfPollination = config.getBooleanLocalized("beekeeping", "self.pollination", false);
 

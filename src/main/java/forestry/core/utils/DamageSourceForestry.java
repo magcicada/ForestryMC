@@ -20,7 +20,7 @@ public class DamageSourceForestry extends DamageSource {
 
 	public DamageSourceForestry(String ident) {
 		super(ident);
-		if (ModuleApiculture.hiveDamageIgnoreArmor) setDamageBypassesArmor();
+		if (ModuleApiculture.hiveDamagePierceArmor) setDamageBypassesArmor();
 	}
 
 	@Override
