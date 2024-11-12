@@ -15,7 +15,6 @@ import com.google.common.base.Preconditions;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-import forestry.mail.items.ItemLetter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
